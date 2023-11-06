@@ -5,7 +5,7 @@ interface CardProps {
   className?: string;
 }
 
-export const Card: React.FC<CardProps> = ({ children, className }) => {
+const Root: React.FC<CardProps> = ({ children, className }) => {
   const [isHover, setIsHover] = useState(false);
 
   return (
@@ -48,7 +48,7 @@ export const Card: React.FC<CardProps> = ({ children, className }) => {
   );
 };
 
-export const CardTitle: React.FC<CardProps> = ({ children, className }) => {
+const Title: React.FC<CardProps> = ({ children, className }) => {
   return (
     <div className={`${className} text-center mb-2`}>
       {children}
@@ -56,10 +56,12 @@ export const CardTitle: React.FC<CardProps> = ({ children, className }) => {
   );
 };
 
-export const CardText: React.FC<CardProps> = ({ children, className }) => {
+const Text: React.FC<CardProps> = ({ children, className }) => {
   return (
     <div className={`${className} text-center mb-8`}>
       {children}
     </div>
   );
 };
+
+export const Card = {Root, Title, Text}

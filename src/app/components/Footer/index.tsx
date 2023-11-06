@@ -6,9 +6,9 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ className }) => {
   return (
     <footer 
-      className={`${className} bg-[#131316] pt-12 pb-4`}
+      className={`${className} bg-[#131316] w-full pt-12 pb-4`}
     >
-      <div className='flex max-w-[1280px] mx-auto px-8'>
+      <div className='flex container mx-auto px-8'>
         <div className="flex">
           <img
             alt='logo'

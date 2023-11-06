@@ -7,7 +7,7 @@ interface PhaseProps {
 
 const PhaseContext = createContext(false);
 
-export const Phase: React.FC<PhaseProps> = ({ children, className }) => {
+const Root: React.FC<PhaseProps> = ({ children, className }) => {
   const [isHover, setIsHover] = useState(false);
 
   return (
@@ -25,7 +25,7 @@ export const Phase: React.FC<PhaseProps> = ({ children, className }) => {
   );
 };
 
-export const PhaseHeader: React.FC<PhaseProps> = ({ children, className }) => {
+const Header: React.FC<PhaseProps> = ({ children, className }) => {
   return (
     <div className={`${className} grid grid-cols-2 mb-5`}>
       {children}
@@ -33,7 +33,7 @@ export const PhaseHeader: React.FC<PhaseProps> = ({ children, className }) => {
   );
 };
 
-export const PhaseTitle: React.FC<PhaseProps> = ({ children, className }) => {
+const Title: React.FC<PhaseProps> = ({ children, className }) => {
   return (
     <div className={`${className}`}>
       {children}
@@ -41,7 +41,7 @@ export const PhaseTitle: React.FC<PhaseProps> = ({ children, className }) => {
   );
 };
 
-export const PhaseEllipse: any = () => {
+const Ellipse: any = () => {
   const isHover = useContext(PhaseContext);
 
   return (
@@ -70,10 +70,12 @@ export const PhaseEllipse: any = () => {
   )
 }
 
-export const PhaseText: React.FC<PhaseProps> = ({ children, className }) => {
+const Text: React.FC<PhaseProps> = ({ children, className }) => {
   return (
     <div className={`${className} font-content`}>
       {children}
     </div>
   );
 };
+
+export const Phase = {Header, Title, Ellipse, Text, Root}

@@ -1,129 +1,81 @@
 'use client'
-import { BackgroundVideo } from './components/BackgroundVideo';
-import { Dropdown } from './components/Dropdown';
 import { ButtonVisual } from './components/ButtonVisual';
 import { ButtonAccent } from './components/ButtonAccent';
-import { Card, CardText, CardTitle } from './components/Card';
-import { Phase, PhaseHeader, PhaseTitle, PhaseEllipse, PhaseText } from './components/Phase';
+import { Card } from './components/Card';
+import { Phase } from './components/Phase';
 import { ButtonLogo } from './components/ButtonLogo';
-import { Contact, ContactImage, ContactText, ContactTitle } from './components/Contact';
+import { Contact } from './components/Contact';
 
 export default function Home() {
-
-  let bgVideo = (
-    <BackgroundVideo>
-      <source src="/static/videos/banner.mp4" type="video/mp4" />
-    </BackgroundVideo>
-  )
-
-  // let logo = (
-  //   <div>
-  //     <div className='mb-1 mt-3 flex justify-center'>
-  //       <img
-  //         alt='logo' 
-  //         src={'/static/images/logo-black.svg'}
-  //         className='min-w-[10%] min-h-[10%]'
-  //       />
-  //     </div>
-      
-  //     <div className='flex justify-center'>
-  //       <img 
-  //         className='ms-1 me-1'
-  //         alt='N'
-  //         src={'/static/images/vector-n.svg'}
-  //       />
-  //       <img 
-  //         className='ms-1 me-1' 
-  //         alt='E' 
-  //         src={'/static/images/vector-e.svg'}
-  //       />
-  //       <img
-  //         className='ms-1 me-1'
-  //         alt='U' 
-  //         src={'/static/images/vector-u.svg'}
-  //       />
-  //       <img 
-  //         className='ms-1 me-1' 
-  //         alt='R'
-  //         src={'/static/images/vector-r.svg'} 
-  //       />
-  //       <img 
-  //         className='ms-1 me-1'
-  //         alt='O' 
-  //         src={'/static/images/vector-o.svg'} 
-  //       />
-  //     </div>
-  //   </div>
-  // )
-
-  // let head = (
-  //   <div className="grid grid-cols-3 h-[25%] bg-[url('/static/images/vector-head-line.svg')] bg-no-repeat bg-cover bg-top mb-7">
-  //     {/* left nav */}
-  //     <div className='flex justify-center'>
-  //       <Dropdown>ABOUT US</Dropdown>
-  //       <Dropdown>NEURODEX</Dropdown>
-  //     </div>
-
-  //     {logo}
-
-  //     {/* right nav */}
-  //     <div className='flex justify-center'>
-  //       <Dropdown>DASHBOARD</Dropdown>
-  //       <Dropdown>CONTACT</Dropdown>
-  //     </div>
-  //   </div>
-  // )
-
-  let banner = (
-    <div className='grid grid-cols-2'>
-      <div className="flex">
-        <img 
-          alt='left-banner'
-          src='/static/images/vector-banner-left.svg'
-          className='w-[100%]'
-        />
-      </div>
-
-      <div className='flex justify-end'>
-        <img 
-          alt='right-banner'
-          src='/static/images/vector-banner-right.svg'
-          className='w-[100%]'
-        />
-      </div>
-    </div>
-  )
-
   return (
-    <main className="">
+    <main>
       {/* BACKGROUND */}
-      <div className='h-[1140px]'>
-        <div className='relative z-[-10] mt-[-520px]'>{bgVideo}</div>
-        <div className='relative z-[0] mt-[-690px]'>{banner}</div>
-      </div>
+      <section 
+        id='background'
+        className={`w-full pt-[43%] relative overflow-hidden`}
+      >
+        <div className='absolute top-[-85%] right-0 w-full z-[-10]'>
+          <video 
+            loop
+            autoPlay
+            muted
+            className='w-full h-full'
+          >
+            <source src="/static/videos/banner.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="absolute bg-[url('/static/images/group-banner.png')] bg-no-repeat bg-contain bg-bottom top-0 flex w-full h-full z-[-9]">
+          {/* <div className="bg-[url('/static/images/vector-banner-left.svg')] w-[50%] h-full bg-left-bottom bg-no-repeat"></div>
+          <div className="bg-[url('/static/images/vector-banner-right.svg')] w-[50%] h-full bg-right-bottom bg-no-repeat"></div> */}
+        </div>
+      </section>
 
       {/* FEATURE UNIQUE */}
-      <div className="grid grid-cols-5 bg-[url('/static/images/test.png')] bg-cover bg-bottom">
-        <div className='h-[600px] col-start-2 col-span-3 backdrop-blur-2xl ms-[-90px] me-[-90px]'>
-          <div className='flex items-center mt-[-50px] mb-16'>
-            <div className='w-full flex-col justify-start items-center gap-1 inline-flex'>
+      <section 
+        id='feature-unique'
+        className="bg-[url('/static/images/test.png')] px-16 w-full bg-cover bg-bottom bg-no-repeat"
+      >
+        <div className='h-[600px] container mx-auto'>
+          {/* <div className='flex items-center mb-16'>
+            <div className='w-full flex-col justify-start mt-[-50px] items-center gap-1 inline-flex'>
               <ButtonVisual>DEVELOPE</ButtonVisual>
             </div>
 
-            <div className='w-full flex-col justify-start items-center gap-1 inline-flex'>
+            <div className='w-full flex-col justify-start mt-[-50px] items-center gap-1 inline-flex'>
               <ButtonVisual>DESIGN</ButtonVisual>
             </div>
 
-            {/* LAUNCH */}
-            <div className='w-full flex-col justify-start items-center gap-1 inline-flex'>
+            <div className='w-full flex-col justify-start mt-[-50px] items-center gap-1 inline-flex'>
               <ButtonAccent>LAUNCH</ButtonAccent>
             </div>
 
-            <div className='w-full flex-col justify-start items-center gap-1 inline-flex'>
+            <div className='w-full flex-col justify-start mt-[-50px] items-center gap-1 inline-flex'>
               <ButtonVisual>MARKETING</ButtonVisual>
             </div>
 
-            <div className='w-full flex-col justify-start items-center gap-1 inline-flex'>
+            <div className='w-full flex-col justify-start mt-[-50px] items-center gap-1 inline-flex'>
+              <ButtonVisual>ACADEMY</ButtonVisual>
+            </div>
+          </div> */}
+
+          <div className='grid grid-cols-5 gap-[25px] px-[210px] items-center mb-16'>
+            <div className='w-full mt-[-50px] flex justify-center'>
+              <ButtonVisual>DEVELOPE</ButtonVisual>
+            </div>
+
+            <div className='w-full mt-[-50px] flex justify-center'>
+              <ButtonVisual>DESIGN</ButtonVisual>
+            </div>
+
+            <div className='w-full mt-[-50px] flex justify-center'>
+              <ButtonAccent>LAUNCH</ButtonAccent>
+            </div>
+
+            <div className='w-full mt-[-50px] flex justify-center'>
+              <ButtonVisual>MARKETING</ButtonVisual>
+            </div>
+
+            <div className='w-full mt-[-50px] flex justify-center'>
               <ButtonVisual>ACADEMY</ButtonVisual>
             </div>
           </div>
@@ -136,97 +88,54 @@ export default function Home() {
             Our technology performing fast blockchain (120K TPS) and it has guaranteed AI-based data security. Proof of Stake
           </div>
 
-          <div className='grid grid-cols-4 gap-4 mb-16 ms-[-120px] me-[-120px]'>
-            <Card className='cursor-pointer'>
-              <CardTitle className='font-heading text-2xl'>
+          <div className='grid grid-cols-4 gap-6 mb-16'>
+            <Card.Root className='cursor-pointer'>
+              <Card.Title className='font-heading text-2xl'>
                 DEVELOPE
-              </CardTitle>
-              <CardText className='font-content'>
+              </Card.Title>
+              <Card.Text className='font-content'>
                 Speak to our friendly team.
-              </CardText>
-            </Card>
+              </Card.Text>
+            </Card.Root>
 
-            <Card className='cursor-pointer'>
-              <CardTitle className='font-heading text-2xl'>
+            <Card.Root className='cursor-pointer'>
+              <Card.Title className='font-heading text-2xl'>
                 DESIGN
-              </CardTitle>
-              <CardText className='font-content'>
+              </Card.Title>
+              <Card.Text className='font-content'>
                 Speak to our friendly team.
-              </CardText>
-            </Card>
+              </Card.Text>
+            </Card.Root>
 
-            <Card className='cursor-pointer'>
-              <CardTitle className='font-heading text-2xl'>
+            <Card.Root className='cursor-pointer'>
+              <Card.Title className='font-heading text-2xl'>
                 MARKETING
-              </CardTitle>
-              <CardText className='font-content'>
+              </Card.Title>
+              <Card.Text className='font-content'>
                 Speak to our friendly team.
-              </CardText>
-            </Card>
+              </Card.Text>
+            </Card.Root>
 
-            <Card className='cursor-pointer'>
-              <CardTitle className='font-heading text-2xl'>
+            <Card.Root className='cursor-pointer'>
+              <Card.Title className='font-heading text-2xl'>
                 ACADEMY
-              </CardTitle>
-              <CardText className='font-content'>
+              </Card.Title>
+              <Card.Text className='font-content'>
                 Speak to our friendly team.
-              </CardText>
-            </Card>
+              </Card.Text>
+            </Card.Root>
            
           </div>
         </div>
-      </div>
+      </section>
 
       {/* ROADMAP */}
-      {/* <div className='h-[796px] grid grid-cols-5'>
-        <div className='col-span-3 col-start-2 flex h-full ms-[-210px] me-[-210px]'>
-          <div className='w-full bg-[#000000]'>
-            <div className='pt-[96px] font-heading text-4xl mb-4'>
-              ROAD MAP
-            </div>
-            <div className='font-content text-base mb-8'>
-              Our technology performing fast blockchain (120K TPS) and it has guaranteed AI-based data security.
-            </div>
-            <div className='grid grid-cols-3'>
-              <div className='me-6 grid grid-rows-3'>
-                <ButtonVisual>
-                  PHASE 1
-                </ButtonVisual>
-                <ButtonVisual>
-                  PHASE 2
-                </ButtonVisual>
-                <ButtonVisual>
-                  PHASE 3
-                </ButtonVisual>
-              </div>
-              <div className='col-span-2'>
-                <Phase className='h-[444px] w-[312px]'>
-                  <PhaseHeader>
-                    <PhaseTitle className='font-heading text-2xl'>PHASE 1</PhaseTitle>
-                    <PhaseEllipse />
-                  </PhaseHeader>
-                  <PhaseText>
-                    Our technology performing fast blockchain (120K TPS) and it has guaranteed AI-based data security. Proof of Stake Our technology performing fast blockchain (120K TPS) and it has guaranteed AI-based data security. Proof of Stake Our technology performing fast blockchain (120K TPS) and it has guaranteed AI-based data security. Proof of Stake
-                  </PhaseText>
-                </Phase>
-              </div>
-            </div>
-          </div>
-
-          <div className='relative z-[-10]'>
-            <video
-              loop
-              autoPlay
-              muted
-            >
-              <source src="/static/videos/bg_roadmap.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
-      </div> */}
-      <div className='ps-16'>
-        <div className='flex'>
-          <div className='w-[487px] pt-24'>
+      <section 
+        id='roadmap'
+        className='w-full px-16 bg-black'
+      >
+        <div className='flex container mx-auto'>
+          <div className='w-1/3 pt-24'>
               <div className='font-heading text-4xl mb-4'>
                 ROAD MAP
               </div>
@@ -246,20 +155,22 @@ export default function Home() {
                   </ButtonVisual>
                 </div>
                 <div>
-                  <Phase>
-                    <PhaseHeader>
-                      <PhaseTitle className='font-heading text-2xl'>PHASE 1</PhaseTitle>
-                      <PhaseEllipse />
-                    </PhaseHeader>
-                    <PhaseText>
+                  <Phase.Root>
+                    <Phase.Header>
+                      <Phase.Title className='font-heading text-2xl'>
+                        PHASE 1
+                      </Phase.Title>
+                      <Phase.Ellipse />
+                    </Phase.Header>
+                    <Phase.Text>
                       Our technology performing fast blockchain (120K TPS) and it has guaranteed AI-based data security. Proof of Stake Our technology performing fast blockchain (120K TPS) and it has guaranteed AI-based data security. Proof of Stake Our technology performing fast blockchain (120K TPS) and it has guaranteed AI-based data security. Proof of Stake
-                    </PhaseText>
-                  </Phase>
+                    </Phase.Text>
+                  </Phase.Root>
                 </div>
               </div>
           </div>
 
-          <div className='w-[889px] h-[797px] relative overflow-hidden'>
+          <div className='w-2/3 h-[797px] relative overflow-hidden'>
             <div className='absolute top-0 me-[-350px]'>
               <video
                 loop
@@ -272,130 +183,145 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="bg-[url('/static/images/noise.png')] h-[844px] px-[60px]">
+      <section 
+        id='media_partner-meet_the_team'
+        className="bg-[url('/static/images/noise.png')] px-16 bg-no-repeat bg-cover h-[844px] w-full"
+      >
         {/* MEDIA PARTNER */}
-        <div className='py-24 px-2.5 h-[392px]'>
+        <div className='py-24 container mx-auto h-[392px]'>
           <div className='font-heading text-center text-4xl mb-6'>
             MEDIA PARTNER
           </div>
           <div className='font-content text-center'>
             Our technology performing fast blockchain (120K TPS) and it has guaranteed AI-based data security. Proof of Stake
           </div>
-          <div className='grid grid-cols-6 gap-6 mt-[71px]'>
-            <ButtonLogo>
-              <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
-                <g clipPath="url(#clip0_1000_760)">
-                  <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
-                  <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
-                  <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
-                  <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
-                  <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
-                  <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
-                </g>
-                <defs>
-                  <clipPath id="clip0_1000_760">
-                    <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
-                  </clipPath>
-                </defs>
-              </svg>
-            </ButtonLogo>
+          <div className='grid grid-cols-6 gap-6 justify-between mt-[71px]'>
+            <div className='flex justify-center'>
+              <ButtonLogo>
+                <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
+                  <g clipPath="url(#clip0_1000_760)">
+                    <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
+                    <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
+                    <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
+                    <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
+                    <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
+                    <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1000_760">
+                      <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </ButtonLogo>
+            </div>
 
-            <ButtonLogo>
-              <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
-                <g clipPath="url(#clip0_1000_760)">
-                  <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
-                  <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
-                  <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
-                  <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
-                  <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
-                  <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
-                </g>
-                <defs>
-                  <clipPath id="clip0_1000_760">
-                    <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
-                  </clipPath>
-                </defs>
-              </svg>
-            </ButtonLogo>
+            <div className='flex justify-center'>
+              <ButtonLogo>
+                <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
+                  <g clipPath="url(#clip0_1000_760)">
+                    <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
+                    <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
+                    <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
+                    <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
+                    <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
+                    <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1000_760">
+                      <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </ButtonLogo>
+            </div>
 
-            <ButtonLogo>
-              <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
-                <g clipPath="url(#clip0_1000_760)">
-                  <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
-                  <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
-                  <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
-                  <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
-                  <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
-                  <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
-                </g>
-                <defs>
-                  <clipPath id="clip0_1000_760">
-                    <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
-                  </clipPath>
-                </defs>
-              </svg>
-            </ButtonLogo>
+            <div className='flex justify-center'>
+              <ButtonLogo>
+                <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
+                  <g clipPath="url(#clip0_1000_760)">
+                    <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
+                    <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
+                    <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
+                    <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
+                    <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
+                    <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1000_760">
+                      <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </ButtonLogo>
+            </div>
 
-            <ButtonLogo>
-              <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
-                <g clipPath="url(#clip0_1000_760)">
-                  <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
-                  <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
-                  <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
-                  <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
-                  <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
-                  <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
-                </g>
-                <defs>
-                  <clipPath id="clip0_1000_760">
-                    <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
-                  </clipPath>
-                </defs>
-              </svg>
-            </ButtonLogo>
+            <div className='flex justify-center'>
+              <ButtonLogo>
+                <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
+                  <g clipPath="url(#clip0_1000_760)">
+                    <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
+                    <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
+                    <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
+                    <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
+                    <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
+                    <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1000_760">
+                      <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </ButtonLogo>
+            </div>
 
-            <ButtonLogo>
-              <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
-                <g clipPath="url(#clip0_1000_760)">
-                  <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
-                  <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
-                  <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
-                  <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
-                  <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
-                  <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
-                </g>
-                <defs>
-                  <clipPath id="clip0_1000_760">
-                    <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
-                  </clipPath>
-                </defs>
-              </svg>
-            </ButtonLogo>
+            <div className='flex justify-center'>
+              <ButtonLogo>
+                <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
+                  <g clipPath="url(#clip0_1000_760)">
+                    <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
+                    <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
+                    <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
+                    <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
+                    <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
+                    <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1000_760">
+                      <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </ButtonLogo>
+            </div>
 
-            <ButtonLogo>
-              <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
-                <g clipPath="url(#clip0_1000_760)">
-                  <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
-                  <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
-                  <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
-                  <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
-                  <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
-                  <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
-                </g>
-                <defs>
-                  <clipPath id="clip0_1000_760">
-                    <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
-                  </clipPath>
-                </defs>
-              </svg>
-            </ButtonLogo>
+            <div className='flex justify-center'>
+              <ButtonLogo>
+                <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
+                  <g clipPath="url(#clip0_1000_760)">
+                    <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
+                    <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
+                    <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
+                    <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
+                    <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
+                    <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1000_760">
+                      <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </ButtonLogo>
+            </div>
           </div>
         </div>
 
         {/* MEET THE TEAM */}
-        <div>
+        <div className='container mx-auto'>
           <div className='font-heading text-center text-4xl mb-4'>
             MEET THE TEAM
           </div>
@@ -404,185 +330,205 @@ export default function Home() {
           </div>
 
           <div className='grid grid-cols-6 gap-6'>
-            <Contact>
-              <ContactImage 
+            <Contact.Root>
+              <Contact.Image 
                 alt=''
                 src='/static/images/contact.png'
               />
-              <ContactTitle>MIKEY</ContactTitle>
-              <ContactText>CEO</ContactText>
-            </Contact>
+              <Contact.Title>MIKEY</Contact.Title>
+              <Contact.Text>CEO</Contact.Text>
+            </Contact.Root>
 
-            <Contact>
-              <ContactImage 
+            <Contact.Root>
+              <Contact.Image 
                 alt=''
                 src='/static/images/contact.png'
               />
-              <ContactTitle>MIKEY</ContactTitle>
-              <ContactText>CEO</ContactText>
-            </Contact>
+              <Contact.Title>MIKEY</Contact.Title>
+              <Contact.Text>CEO</Contact.Text>
+            </Contact.Root>
 
-            <Contact>
-              <ContactImage 
+            <Contact.Root>
+              <Contact.Image 
                 alt=''
                 src='/static/images/contact.png'
               />
-              <ContactTitle>MIKEY</ContactTitle>
-              <ContactText>CEO</ContactText>
-            </Contact>
+              <Contact.Title>MIKEY</Contact.Title>
+              <Contact.Text>CEO</Contact.Text>
+            </Contact.Root>
 
-            <Contact>
-              <ContactImage 
+            <Contact.Root>
+              <Contact.Image 
                 alt=''
                 src='/static/images/contact.png'
               />
-              <ContactTitle>MIKEY</ContactTitle>
-              <ContactText>CEO</ContactText>
-            </Contact>
+              <Contact.Title>MIKEY</Contact.Title>
+              <Contact.Text>CEO</Contact.Text>
+            </Contact.Root>
 
-            <Contact>
-              <ContactImage 
+            <Contact.Root>
+              <Contact.Image 
                 alt=''
                 src='/static/images/contact.png'
               />
-              <ContactTitle>MIKEY</ContactTitle>
-              <ContactText>CEO</ContactText>
-            </Contact>
+              <Contact.Title>MIKEY</Contact.Title>
+              <Contact.Text>CEO</Contact.Text>
+            </Contact.Root>
 
-            <Contact>
-              <ContactImage 
+            <Contact.Root>
+              <Contact.Image 
                 alt=''
                 src='/static/images/contact.png'
               />
-              <ContactTitle>MIKEY</ContactTitle>
-              <ContactText>CEO</ContactText>
-            </Contact>
+              <Contact.Title>MIKEY</Contact.Title>
+              <Contact.Text>CEO</Contact.Text>
+            </Contact.Root>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* OUR CLIENT */}
-      <div className='px-[60px] mb-24 bg-[#000000]'>
-        <div className='font-heading text-center text-4xl mb-6'>
-          OUR CLIENT
+      <section 
+        id='our-client'
+        className='w-full mb-24 px-16 bg-[#000000]'
+      >
+        <div className='container mx-auto'>
+          <div className='font-heading text-center text-4xl mb-6'>
+            OUR CLIENT
+          </div>
+          <div className='font-content text-center mb-8'>
+            Our technology performing fast blockchain (120K TPS) and it has guaranteed AI-based data security. Proof of Stake
+          </div>
+          <div className='grid grid-cols-6 gap-6 auto-cols-max'>
+            <div className='flex justify-center'>
+              <ButtonLogo>
+                <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
+                  <g clipPath="url(#clip0_1000_760)">
+                    <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
+                    <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
+                    <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
+                    <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
+                    <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
+                    <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1000_760">
+                      <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </ButtonLogo>
+            </div>
+            
+            <div className='flex justify-center'>
+              <ButtonLogo>
+                <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
+                  <g clipPath="url(#clip0_1000_760)">
+                    <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
+                    <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
+                    <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
+                    <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
+                    <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
+                    <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1000_760">
+                      <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </ButtonLogo>
+            </div>
+
+            <div className='flex justify-center'>
+              <ButtonLogo>
+                <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
+                  <g clipPath="url(#clip0_1000_760)">
+                    <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
+                    <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
+                    <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
+                    <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
+                    <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
+                    <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1000_760">
+                      <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </ButtonLogo>
+            </div>
+
+            <div className='flex justify-center'>
+              <ButtonLogo>
+                <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
+                  <g clipPath="url(#clip0_1000_760)">
+                    <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
+                    <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
+                    <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
+                    <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
+                    <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
+                    <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1000_760">
+                      <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </ButtonLogo>
+            </div>
+
+            <div className='flex justify-center'>
+              <ButtonLogo>
+                <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
+                  <g clipPath="url(#clip0_1000_760)">
+                    <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
+                    <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
+                    <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
+                    <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
+                    <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
+                    <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1000_760">
+                      <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </ButtonLogo>
+            </div>
+
+            <div className='flex justify-center'>
+              <ButtonLogo>
+                <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
+                  <g clipPath="url(#clip0_1000_760)">
+                    <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
+                    <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
+                    <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
+                    <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
+                    <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
+                    <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1000_760">
+                      <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </ButtonLogo>
+            </div>
+          </div>
         </div>
-        <div className='font-content text-center mb-8'>
-          Our technology performing fast blockchain (120K TPS) and it has guaranteed AI-based data security. Proof of Stake
-        </div>
-        <div className='grid grid-cols-6 gap-6'>
-          <ButtonLogo>
-            <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
-              <g clipPath="url(#clip0_1000_760)">
-                <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
-                <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
-                <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
-                <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
-                <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
-                <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
-              </g>
-              <defs>
-                <clipPath id="clip0_1000_760">
-                  <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
-                </clipPath>
-              </defs>
-            </svg>
-          </ButtonLogo>
-
-          <ButtonLogo>
-            <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
-              <g clipPath="url(#clip0_1000_760)">
-                <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
-                <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
-                <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
-                <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
-                <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
-                <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
-              </g>
-              <defs>
-                <clipPath id="clip0_1000_760">
-                  <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
-                </clipPath>
-              </defs>
-            </svg>
-          </ButtonLogo>
-
-          <ButtonLogo>
-            <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
-              <g clipPath="url(#clip0_1000_760)">
-                <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
-                <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
-                <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
-                <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
-                <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
-                <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
-              </g>
-              <defs>
-                <clipPath id="clip0_1000_760">
-                  <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
-                </clipPath>
-              </defs>
-            </svg>
-          </ButtonLogo>
-
-          <ButtonLogo>
-            <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
-              <g clipPath="url(#clip0_1000_760)">
-                <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
-                <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
-                <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
-                <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
-                <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
-                <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
-              </g>
-              <defs>
-                <clipPath id="clip0_1000_760">
-                  <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
-                </clipPath>
-              </defs>
-            </svg>
-          </ButtonLogo>
-
-          <ButtonLogo>
-            <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
-              <g clipPath="url(#clip0_1000_760)">
-                <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
-                <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
-                <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
-                <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
-                <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
-                <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
-              </g>
-              <defs>
-                <clipPath id="clip0_1000_760">
-                  <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
-                </clipPath>
-              </defs>
-            </svg>
-          </ButtonLogo>
-
-          <ButtonLogo>
-            <svg xmlns="http://www.w3.org/2000/svg" width="122" height="41" viewBox="0 0 122 41" fill="none">
-              <g clipPath="url(#clip0_1000_760)">
-                <path d="M52.1019 20.6292C52.1019 26.2126 47.6698 30.3268 42.2306 30.3268C36.7915 30.3268 32.3594 26.2126 32.3594 20.6292C32.3594 15.0066 36.7915 10.9316 42.2306 10.9316C47.6698 10.9316 52.1019 15.0066 52.1019 20.6292ZM47.7807 20.6292C47.7807 17.1402 45.212 14.753 42.2306 14.753C39.2493 14.753 36.6805 17.1402 36.6805 20.6292C36.6805 24.0833 39.2493 26.5055 42.2306 26.5055C45.212 26.5055 47.7807 24.0789 47.7807 20.6292Z" fill="white"/>
-                <path d="M73.3988 20.6292C73.3988 26.2126 68.9667 30.3268 63.5275 30.3268C58.0883 30.3268 53.6562 26.2126 53.6562 20.6292C53.6562 15.0109 58.0883 10.9316 63.5275 10.9316C68.9667 10.9316 73.3988 15.0066 73.3988 20.6292ZM69.0776 20.6292C69.0776 17.1402 66.5089 14.753 63.5275 14.753C60.5462 14.753 57.9774 17.1402 57.9774 20.6292C57.9774 24.0833 60.5462 26.5055 63.5275 26.5055C66.5089 26.5055 69.0776 24.0789 69.0776 20.6292Z" fill="white"/>
-                <path d="M93.8055 11.5175V28.9277C93.8055 36.0894 89.5198 39.0144 84.4533 39.0144C79.6841 39.0144 76.8136 35.8708 75.7311 33.2999L79.4933 31.7565C80.1632 33.3349 81.8047 35.1975 84.4489 35.1975C87.692 35.1975 89.7017 33.2256 89.7017 29.5136V28.1189H89.5509C88.5837 29.295 86.7204 30.3225 84.369 30.3225C79.4489 30.3225 74.9414 26.0989 74.9414 20.6642C74.9414 15.1902 79.4489 10.9316 84.369 10.9316C86.7159 10.9316 88.5793 11.9591 89.5509 13.1003H89.7017V11.5219H93.8055V11.5175ZM90.0078 20.6642C90.0078 17.2495 87.6964 14.753 84.755 14.753C81.7737 14.753 79.2759 17.2495 79.2759 20.6642C79.2759 24.0439 81.7737 26.5055 84.755 26.5055C87.6964 26.5055 90.0078 24.0439 90.0078 20.6642Z" fill="white"/>
-                <path d="M100.571 1.31055V29.73H96.3564V1.31055H100.571Z" fill="white"/>
-                <path d="M116.997 23.8195L120.351 26.0231C119.269 27.6014 116.66 30.321 112.152 30.321C106.562 30.321 102.388 26.0624 102.388 20.6234C102.388 14.8564 106.598 10.9258 111.669 10.9258C116.775 10.9258 119.273 14.9307 120.089 17.095L120.538 18.1968L107.383 23.5659C108.39 25.5115 109.956 26.504 112.152 26.504C114.353 26.504 115.879 25.4372 116.997 23.8195ZM106.673 20.3304L115.467 16.7321C114.983 15.521 113.528 14.6772 111.815 14.6772C109.619 14.6772 106.562 16.5878 106.673 20.3304Z" fill="white"/>
-                <path d="M16.403 18.105V13.9907H30.4712C30.6088 14.7077 30.6798 15.556 30.6798 16.4741C30.6798 19.5609 29.8235 23.3779 27.064 26.0974C24.3799 28.8519 20.9505 30.321 16.4075 30.321C7.98694 30.321 0.90625 23.5615 0.90625 15.263C0.90625 6.96454 7.98694 0.205078 16.4075 0.205078C21.0658 0.205078 24.3843 2.00643 26.8777 4.35432L23.9318 7.25748C22.1439 5.60478 19.7215 4.31934 16.403 4.31934C10.254 4.31934 5.44481 9.20312 5.44481 15.263C5.44481 21.3229 10.254 26.2067 16.403 26.2067C20.3915 26.2067 22.663 24.6283 24.1181 23.1942C25.2982 22.0312 26.0746 20.3698 26.3808 18.1006L16.403 18.105Z" fill="white"/>
-              </g>
-              <defs>
-                <clipPath id="clip0_1000_760">
-                  <rect width="120.673" height="40.2245" fill="white" transform="translate(0.75)"/>
-                </clipPath>
-              </defs>
-            </svg>
-          </ButtonLogo>
-        </div>
-      </div>
+      </section>
 
       {/* ECOSYSTEM */}
-      <div className='px-16 mb-24 bg-[#000000]'>
-        <div className='flex justify-between'>
+      <section 
+        id='eco-system'
+        className='w-full px-16 mb-24 bg-[#000000]'
+      >
+        <div className='container mx-auto flex'>
           <div className='w-[594px] pt-[55px]'>
             <div className='font-heading text-5xl mb-5'>
               ECOSYSTEM<br/>NEURO
@@ -602,9 +548,9 @@ export default function Home() {
               </svg>
             </div>
           </div>
-
+          <div className='w-[340px]'></div>
           <div>
-            <div className='me-[-55px] flex items-center justify-center w-[433px] h-[433px] border-[#FF3D00] rounded-[50%] border-solid border-2'>
+            <div className='flex items-center justify-center w-[433px] h-[433px] border-[#FF3D00] rounded-[50%] border-solid border-2'>
               <div className="flex items-center justify-center w-[294px] h-[294px] border-[#FF3D00] rounded-[50%] border-solid border-2 bg-[url('/static/images/bg-ellipse.svg')] bg-center">
                 <div className="w-[159px] h-[159px] border-[#FF3D00] rounded-[50%] border-solid border-2">
                   <img
@@ -637,7 +583,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

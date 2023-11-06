@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html className='h-full bg-black text-[#FFFFFF]' lang="en">
-      <body className={`h-full w-[1440px] mx-auto ${inter.className}`}>
+      <body className={`h-full w-full mx-auto ${inter.className}`}>
         <Header />
         {children}
         <Footer />

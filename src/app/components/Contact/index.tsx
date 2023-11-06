@@ -13,13 +13,13 @@ interface ContactImageProps {
   height?: string;
 }
 
-export const Contact: React.FC<ContactProps> = ({ children, className }) => {
+const Root: React.FC<ContactProps> = ({ children, className }) => {
   const [color, setColor] = useState('#26272B');
   // const [show, setShow] = useState(false);
 
   return (
     <div 
-      className={`${className} h-[300px] bg-[#131316] border-[#26272B] border-solid border-4 rounded-lg p-4`}
+      className={`${className} flex justify-center h-[300px] bg-[#131316] border-[#26272B] border-solid border-4 rounded-lg p-4`}
       // onMouseOver={() => setShow(true)}
       // onMouseOut={() => setShow(false)}
     >
@@ -39,7 +39,7 @@ export const Contact: React.FC<ContactProps> = ({ children, className }) => {
   );
 };
 
-export const ContactImage: React.FC<ContactImageProps> = ({className, alt, src, width, height}) => {
+const Image: React.FC<ContactImageProps> = ({className, alt, src, width, height}) => {
   return (
     <div className={`${className} mb-3 flex justify-center`}>
       <img 
@@ -53,7 +53,7 @@ export const ContactImage: React.FC<ContactImageProps> = ({className, alt, src, 
   )
 }
 
-export const ContactTitle: React.FC<ContactProps> = ({children, className}) => {
+const Title: React.FC<ContactProps> = ({children, className}) => {
   return (
     <div className={`${className} font-heading text-2xl justify-center h-8 flex items-center mb-2`}>
       {children}
@@ -61,10 +61,12 @@ export const ContactTitle: React.FC<ContactProps> = ({children, className}) => {
   )
 }
 
-export const ContactText: React.FC<ContactProps> = ({children, className}) => {
+const Text: React.FC<ContactProps> = ({children, className}) => {
   return (
     <div className={`${className} font-content text-lg h-7 flex items-center justify-center text-[#E4E4E7]`}>
       {children}
     </div>
   )
 }
+
+export const Contact = {Root, Image, Title, Text}

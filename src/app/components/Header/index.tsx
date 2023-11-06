@@ -10,9 +10,9 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
 
   return (
     <header 
-      className={`${className} fixed z-[100] top-0 right-0 w-full`}
+      className={`${className} fixed z-[100] w-full top-0 right-0 left-0 mx-auto mt-0`}
     >
-      <div className='flex items-center justify-between rounded-lg h-20 py-3 px-8 max-w-[1376px] my-2 mx-auto bg-[#000000CC]'>
+      <div className='flex container mx-auto items-center justify-between rounded-lg h-20 py-3 px-8 w-full my-2 bg-[#000000CC]'>
         <div className="flex">
           <img
             alt='logo'
@@ -47,10 +47,10 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
         <div className='flex items-center'>
           <div className='grid grid-rows-2 font-content px-3 py-4 w-[142px]'>
             <div
-              className='flex cursor-pointer items-end mb-[-15px] justify-between'
+              className='flex cursor-pointer items-end mb-[-15px]'
               onClick={() => setShow(prev => !prev)}
             >
-              <div>Neuro</div>
+              <div className='me-5'>Neuro</div>
               <div>
                 {show
                 ? <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
