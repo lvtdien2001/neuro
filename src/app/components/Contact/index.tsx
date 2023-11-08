@@ -30,6 +30,8 @@ const Root: React.FC<ContactProps> = ({ children, className }) => {
             className={`flex justify-center items-center font-content h-12 mt-3 p-2 border-[${color}] border-solid rounded border-2`}
             onMouseOver={() => setColor('#FF3D00')}
             onMouseOut={() => setColor('#26272B')}
+            onBlur={() => 0}
+            onFocus={() => 0}
           >
             PROFILE
           </div>

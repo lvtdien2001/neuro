@@ -16,6 +16,8 @@ export const ButtonLogo: React.FC<ButtonLogoProps> = ({ children, className }) =
       // onBlur={() => setBorder('border-[#18181B]')}
       onMouseOver={() => setIsHover(true)}
       onMouseOut={() => setIsHover(false)}
+      onBlur={() => 0}
+      onFocus={() => 0}
     >
       {children}
     </div>

@@ -28,6 +28,8 @@ export const ButtonVisual: React.FC<ButtonVisualProps> = ({ children, className 
       <div 
         onMouseOver={() => setIsHover(true)}
         onMouseOut={() => setIsHover(false)}
+        onBlur={() => 0}
+        onFocus={() => 0}
         className='font-heading cursor-pointer text-center font-extrabold text-xl break-words'
       >
         {children}

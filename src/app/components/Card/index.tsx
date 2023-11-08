@@ -13,6 +13,8 @@ const Root: React.FC<CardProps> = ({ children, className }) => {
       className={`${className} w-full h-[320px] bg-[#131316] border-[#3F3F46] rounded-lg border-2 border-solid p-4`}
       onMouseOver={() => setIsHover(true)}
       onMouseOut={() => setIsHover(false)}
+      onBlur={() => 0}
+      onFocus={() => 0}
     >
       <div className={`${isHover ? 'border-[#FF3D00]' : 'border-[#3F3F46]'} border-2 rounded w-full h-full px-3 py-8`}>
           <div className='flex justify-center mb-[32px]'>
