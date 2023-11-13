@@ -1,3 +1,4 @@
+import Image from 'next/image';
 
 interface FooterProps {
   className?: string;
@@ -5,49 +6,59 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ className }) => {
   return (
-    <footer 
-      className={`${className} bg-[#131316] w-full pt-12 pb-4`}
-    >
-      <div className='flex container mx-auto px-8'>
+    <footer className={`${className} bg-[#131316] w-full pt-12 pb-4`}>
+      <div className="flex container mx-auto px-8">
         <div className="flex">
-          <img
-            alt='logo'
-            src='/static/images/logo-black.svg'
+          <Image
+            alt="logo"
+            src="/static/images/logo-black.svg"
             className="me-[11px]"
+            width={44}
+            height={44}
           />
-          <img
-            alt='N'
-            src='/static/images/vector-n.svg'
-            className='me-[9px]'
+          <Image
+            alt="N"
+            src="/static/images/vector-n.svg"
+            className="me-[9px]"
+            width={11}
+            height={10}
           />
-          <img
-            alt='E'
-            src='/static/images/vector-e.svg'
-            className='me-[9px]'
+          <Image
+            alt="E"
+            src="/static/images/vector-e.svg"
+            className="me-[9px]"
+            width={11}
+            height={10}
           />
-          <img
-            alt='U'
-            className='me-[9px]'
-            src='/static/images/vector-u.svg'
+          <Image
+            alt="U"
+            className="me-[9px]"
+            src="/static/images/vector-u.svg"
+            width={12}
+            height={10}
           />
-          <img
-            alt='R'
-            src='/static/images/vector-r.svg'
-            className='me-[9px]'
+          <Image
+            alt="R"
+            src="/static/images/vector-r.svg"
+            className="me-[9px]"
+            width={11}
+            height={10}
           />
-          <img
-            alt='O'
-            src='/static/images/vector-o.svg'
+          <Image
+            alt="O"
+            src="/static/images/vector-o.svg"
+            width={13}
+            height={10}
           />
         </div>
 
-        <div className='flex w-full justify-end items-center'>
-          <div className='font-heading'>Overview</div>
-          <div className='font-heading ms-8'>Features</div>
-          <div className='font-heading ms-8'>Pricing</div>
-          <div className='font-heading ms-8'>Careers</div>
-          <div className='font-heading ms-8'>Help</div>
-          <div className='font-heading ms-8'>Privacy</div>
+        <div className="flex w-full justify-end items-center">
+          <div className="font-heading">Overview</div>
+          <div className="font-heading ms-8">Features</div>
+          <div className="font-heading ms-8">Pricing</div>
+          <div className="font-heading ms-8">Careers</div>
+          <div className="font-heading ms-8">Help</div>
+          <div className="font-heading ms-8">Privacy</div>
         </div>
       </div>
     </footer>
